@@ -123,13 +123,32 @@ public class Picture extends SimplePicture
     int width = pixels[0].length;
     for (int row = 0; row < pixels.length; row++)
     {
-      for (int col = 0; col < width / 2; col++)
+      for (int col = pixels[0].length - 1; col > width / 2; col--)
       {
         rightPixel = pixels[row][col];
-        leftPixel = pixels[row][width + 1 + col];
+        leftPixel = pixels[row][ (width/2)-(col - width / 2)];
         leftPixel.setColor(rightPixel.getColor());
       }
     } 
+  }
+  
+  public void randomColor()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] row :pixels)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int randomRed,randomBlue,randomGreen;
+			 randomRed = (int) (Math.random() * 256) ;
+			 randomGreen = (int) (Math.random() * 256) ;
+			 randomBlue = (int) (Math.random() * 256) ;
+			 currentPixel.setBlue(randomBlue);
+			 currentPixel.setGreen(randomGreen);
+			 currentPixel.setRed(randomRed);
+		  }
+	  }
+		  
   }
   
   public void mirrorHorizontal()
@@ -138,9 +157,9 @@ public class Picture extends SimplePicture
     Pixel topPixel = null;
     Pixel bottomPixel = null;
     int height = pixels.length;
-    for (int row = 0; row < pixels[0].length; row++)
+    for (int row = 0; row < height / 2 ; row++)
     {
-      for (int col = 0; col < height / 2; col++)
+      for (int col = 0; col < pixels[0].length; col++)
       {
         topPixel = pixels[row][col];
         bottomPixel = pixels[row][height - 1 - col];

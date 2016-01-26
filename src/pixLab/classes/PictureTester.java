@@ -27,6 +27,14 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -81,24 +89,45 @@ public class PictureTester
 	  
   }
   
-  /** Main method for testing.  Every class can have a main
+  public static void tetMirrorHorizontal()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.mirrorHorizontal();
+	  gull.explore();
+	  
+  }
+  
+  public static void testRandomColor()
+  {
+	  Picture  randomCat = new Picture("caterpiller.jpg");
+	  randomCat.randomColor();
+	  randomCat.explore();
+	  
+	  
+  }
+  
+  /** Main method
+   *  for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
-    testKeepOnlyRed();
-    testKeepOnlyGreen();
+//    testZeroBlue();
+//    testKeepOnlyBlue();
+//    testKeepOnlyRed();
+//    testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
     testMirrorVertical();
+    testMirrorVerticalRightToLeft();
+    testRandomColor();
+	 // tetMirrorHorizontal();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
+   // testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
