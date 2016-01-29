@@ -88,12 +88,84 @@ public class Picture extends SimplePicture
   
   public void negate()
   {
+	  Pixel [][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj : rowArray)
+		  {
+			  Pixel currentPixel =  pixelObj;
+					Color red =   null;
+					Color blue = null;
+					Color green = null;
+					int negative = -255;
+					pixelObj.getBlue();
+			  pixelObj.setRed(negative);
+			  pixelObj.setGreen(-254);
+			  pixelObj.setBlue(-254);
+			 
+		  }
+	  }
 	  
   }
   
-  public void edgeDetection2()
+  public void mirrorDiagnal()
   {
-	  
+	  Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	    	  
+	      }
+  }
+	    }
+  
+  public void mirrorArms()
+  {
+	    	  int mirrorPoint = 207;
+	    	    Pixel leftPixel = null;
+	    	    Pixel rightPixel = null;
+	    	    int count = 0;
+	    	    Pixel[][] pixels = this.getPixels2D();
+	    	    
+	    	    // loop through the rows
+	    	    for (int row = 155 ; row < mirrorPoint; row++)
+	    	    {
+	    	      // loop from 13 to just before the mirror point
+	    	      for (int col = 95; col < 300; col++)
+	    	      {
+	    	        
+	    	        leftPixel = pixels[row][col];      
+	    	        rightPixel = pixels[row]                       
+	    	                         [mirrorPoint - col + mirrorPoint];
+	    	        rightPixel.setColor(leftPixel.getColor());
+	    	      }
+	    	    }
+	    	  
+	      	      	    	  
+  }
+  
+  public void edgeDetection2(int edgeDist)
+  {
+	  Pixel leftPixel = null;
+	    Pixel rightPixel = null;
+	    Pixel[][] pixels = this.getPixels2D();
+	    Color rightColor = null;
+	    for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; 
+	           col < pixels[0].length-1; col++)
+	      {
+	        leftPixel = pixels[row][col];
+	        rightPixel = pixels[row][col+1];
+	        rightColor = rightPixel.getColor();
+	        if (leftPixel.colorDistance(rightColor) > 
+	            edgeDist)
+	          leftPixel.setColor(Color.BLACK);
+	        else
+	          leftPixel.setColor(Color.WHITE);
+	      }
+	    }
   }
   
   public void fixUnderwater()
@@ -108,7 +180,12 @@ public class Picture extends SimplePicture
 	    {
 	      for (Pixel pixelObj : rowArray)
 	      {
-	    	  //pixelObj
+	    	  Pixel currentPixel =  pixelObj;
+	    	 // pixelObj.setRed(currentPixel.getAverage() );
+			  pixelObj.setGreen(-255);
+			  pixelObj.setBlue(-255);
+	    	  
+	    	  //pixelObj.getAverage(currentPixel);
 	      }
 	      
 	    }
@@ -251,6 +328,25 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void mirrorGull()
+  {
+	  int mirrorPoint = 276;
+	    Pixel leftPixel = null;
+	    Pixel rightPixel = null;
+	    int count = 0;
+	    Pixel[][] pixels = this.getPixels2D();
+	    
+	    // loop through the rows
+	    for (int row = 27; row < 97; row++)
+	    {
+	      // loop from 13 to just before the mirror point
+	      for (int col = 13; col < mirrorPoint; col++)
+	      {
+	    	  
+	      }
+	    }
+  }
+  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -325,7 +421,7 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+ 
   
   /* Main method for testing - each class in Java can have a main 
    * method 
@@ -334,14 +430,20 @@ public class Picture extends SimplePicture
   {
     Picture beach = new Picture("beach.jpg");
    
-    beach.keepOnlyBlue();
-    beach.edgeDetection(0);
+   // beach.keepOnlyBlue();
+   
     beach.createCollage();
+    beach.copy(beach, 0, 0);
+    //beach.mirrorHorizontal();
    // beach.negate();
     beach.mirrorVertical();
     //beach.keepOnlyRed();
    // beach.keepOnlyGreen();
     beach.explore();
+    //beach.edgeDetection(0);
+    beach.mirrorTemple();
+    beach.explore();
+
    // beach.write("OnlyGreenBeach.jpg");
   }
   

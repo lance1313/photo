@@ -106,6 +106,47 @@ public class PictureTester
 	  
   }
   
+  public static void testMirrorArms()
+  {
+	  Picture arms = new Picture("snowman.jpg");
+	  arms.mirrorArms();
+	  arms.explore();
+	  
+  }
+  
+  public static void testCopy()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.mirrorHorizontal();
+	  gull.explore();
+	  
+  }
+  
+  public static void testMirrorDiagonal()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.mirrorHorizontal();
+	  gull.explore();
+	  
+  }
+  
+  public static void testEdgeDetection2()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.mirrorHorizontal();
+	  gull.explore();
+	  
+  }
+  
+  public static void testNegate()
+  {
+	  
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.negate();
+	  gull.explore();
+  	
+  }
+  
   /** Main method
    *  for testing.  Every class can have a main
     * method in Java */
@@ -118,21 +159,21 @@ public class PictureTester
 //    testKeepOnlyBlue();
 //    testKeepOnlyRed();
 //    testKeepOnlyGreen();
-    //testNegate();
+    testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
-    testMirrorVerticalRightToLeft();
-    testRandomColor();
-	 // tetMirrorHorizontal();
-    //testMirrorTemple();
-    //testMirrorArms();
-   // testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+//    testMirrorVertical();
+//    testMirrorVerticalRightToLeft();
+//    testRandomColor();
+//	 tetMirrorHorizontal();
+//    testMirrorTemple();
+    testMirrorArms();
+//    testMirrorGull();
+//    testMirrorDiagonal();
+//    testCollage();
+//    testCopy();
+//    testEdgeDetection();
+//    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
@@ -140,4 +181,6 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
   }
+
+
 }
