@@ -147,6 +147,13 @@ public class PictureTester
   	
   }
   
+  public static void testGrayScale()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.grayScale();
+	  gull.explore();
+  }
+  
   /** Main method
    *  for testing.  Every class can have a main
     * method in Java */

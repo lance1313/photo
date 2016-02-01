@@ -181,11 +181,11 @@ public class Picture extends SimplePicture
 	      for (Pixel pixelObj : rowArray)
 	      {
 	    	  Pixel currentPixel =  pixelObj;
-	    	 // pixelObj.setRed(currentPixel.getAverage() );
-			  pixelObj.setGreen(-255);
-			  pixelObj.setBlue(-255);
+			  pixelObj.getAverage();
+			  
+			  
+	                                                                   	  
 	    	  
-	    	  //pixelObj.getAverage(currentPixel);
 	      }
 	      
 	    }
@@ -245,6 +245,19 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void zeroBlue()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	    	  int tempBlue = pixelObj.getBlue();
+	    	  pixelObj.setBlue(0);
+	    	  tempBlue = pixelObj.getBlue();
+	      }
+	    }
+  }
   /** Method to set the blue to 0 */
   public void keepOnlyBlue()
   {
@@ -432,16 +445,18 @@ public class Picture extends SimplePicture
    
    // beach.keepOnlyBlue();
    
-    beach.createCollage();
-    beach.copy(beach, 0, 0);
+   // beach.createCollage();
+   // beach.copy(beach, 0, 0);
     //beach.mirrorHorizontal();
    // beach.negate();
     beach.mirrorVertical();
     //beach.keepOnlyRed();
    // beach.keepOnlyGreen();
-    beach.explore();
+   // beach.explore();
     //beach.edgeDetection(0);
-    beach.mirrorTemple();
+   // beach.mirrorTemple();
+   // beach.zeroBlue();
+   // beach.keepOnlyBlue();
     beach.explore();
 
    // beach.write("OnlyGreenBeach.jpg");
