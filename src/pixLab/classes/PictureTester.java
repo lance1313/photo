@@ -124,8 +124,8 @@ public class PictureTester
   
   public static void testMirrorDiagonal()
   {
-	  Picture gull = new Picture("seagull.jpg");
-	  gull.mirrorHorizontal();
+	  Picture gull = new Picture("beach.jpg");
+	  gull.mirrorDiagnal();
 	  gull.explore();
 	  
   }
@@ -133,7 +133,7 @@ public class PictureTester
   public static void testEdgeDetection2()
   {
 	  Picture gull = new Picture("seagull.jpg");
-	  gull.mirrorHorizontal();
+	  gull.edgeDetection2(10);
 	  gull.explore();
 	  
   }
@@ -150,7 +150,7 @@ public class PictureTester
   public static void testGrayScale()
   {
 	  Picture gull = new Picture("seagull.jpg");
-	  gull.grayScale();
+	  gull.grayScale(0);
 	  gull.explore();
   }
   
@@ -162,25 +162,25 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-//    testZeroBlue();
-//    testKeepOnlyBlue();
-//    testKeepOnlyRed();
-//    testKeepOnlyGreen();
+    testZeroBlue();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
     testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-//    testMirrorVertical();
-//    testMirrorVerticalRightToLeft();
-//    testRandomColor();
-//	 tetMirrorHorizontal();
-//    testMirrorTemple();
+    testGrayScale();
+   // testFixUnderwater();
+    testMirrorVertical();
+    testMirrorVerticalRightToLeft();
+    testRandomColor();
+	 tetMirrorHorizontal();
+    testMirrorTemple();
     testMirrorArms();
-//    testMirrorGull();
-//    testMirrorDiagonal();
-//    testCollage();
-//    testCopy();
-//    testEdgeDetection();
-//    testEdgeDetection2();
+    testMirrorGull();
+    testMirrorDiagonal();
+    testCollage();
+    testCopy();
+    testEdgeDetection();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
